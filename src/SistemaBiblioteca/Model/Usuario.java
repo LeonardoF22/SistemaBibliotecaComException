@@ -35,7 +35,7 @@ public class Usuario {
         }
         String livrosString = "";
         for(Livro livro : livrosEmprestados){
-            livrosString += livro.getTitulo() + "\n" + livro.getAutor() + "\n";
+            livrosString += "Titulo: " + livro.getTitulo() + "\nAutor: " + livro.getAutor() + "\n";
         }
         return livrosString;
     }

@@ -76,8 +76,11 @@ public class Biblioteca {
         Livro livro = buscarLivro(idLivro);
         Usuario usuario = buscarUsuario(idUsuario);
 
-        if(usuario.getLivrosEmprestados().size() >= 3 || !livro.isDisponivel()){
-            throw new EmprestarLivroException("Erro ao emprestar livro");
+        if(usuario.getLivrosEmprestados().size() >= 3){
+            throw new EmprestarLivroException("O usuario já possui o máximo de livros emprestados!");
+        }
+        if(!livro.isDisponivel()){
+            throw new EmprestarLivroException("O livro não está disponível!");
         }
         livro.emprestarLivro();
         usuario.emprestarLivro(livro);
